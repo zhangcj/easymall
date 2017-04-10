@@ -1,6 +1,9 @@
 package com.zcj.springbootdemo.domain.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2017/4/10.
@@ -13,7 +16,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private int age;
+    private String pwd;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createdAt;
 
     public Long getId() {
         return id;
@@ -31,11 +36,19 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

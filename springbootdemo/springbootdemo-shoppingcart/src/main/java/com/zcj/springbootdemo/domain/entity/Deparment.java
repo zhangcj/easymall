@@ -6,14 +6,12 @@ import javax.persistence.*;
  * Created by Administrator on 2017/4/10.
  */
 @Entity
-@Table(name = "user")
-public class User {
-
+@Table(name = "deparment")
+public class Deparment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private int age;
 
     public Long getId() {
         return id;
@@ -29,13 +27,5 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 }

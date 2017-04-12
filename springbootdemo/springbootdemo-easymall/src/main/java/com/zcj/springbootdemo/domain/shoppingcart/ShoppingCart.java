@@ -1,40 +1,49 @@
 package com.zcj.springbootdemo.domain.shoppingcart;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2017/4/6.
  */
+@Entity
+@Table(name = "shoppingcart")
 public class ShoppingCart {
-    private int id;
-    private int productId;
-    private String productName;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private Long itemId;
+    private String itemName;
     private float price;
     private int count;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getProductId() {
-        return productId;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public float getPrice() {

@@ -31,6 +31,6 @@ public class ShoppingCartController {
         model.addAttribute("shoppingcartid", shoppingcartid);
 
         shoppingCartServiceAPI.getShoppingCartById(Integer.parseInt(shoppingcartid));
-        return "shoppingcart";
+        return "shoppingcart/main";
     }
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>商品列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<p>商品列表：</p>
+
+<ul th:each="it:${items}">
+    <li>
+        <span th:text="${it.itemName}"></span>
+         |
+        <span th:text="${it.price}"></span>
+        &nbsp;&nbsp;<span th:id="${it.id}" class="spChoice" is="0" style="cursor: pointer;">[-]</span>
+    </li>
+</ul>
+
+<form method="post" action="/item/submit">
+    <input type="hidden" name="ids" id="hideIds" value=""/>
+    <input type="submit" value="提交"/>
+</form>
+
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        spChoice();
+    });
+
+    var spChoice = function () {
+        $('.spChoice').click(function () {
+            var is = $(this).attr('is');
+            if(is==0){
+                $(this).text('[√]');
+                $(this).attr('is','1');
+                var id = $(this).attr('id');
+                var ids = $('#hideIds').val();
+                $('#hideIds').val(ids+id+',');
+            }else {
+                $(this).text('[-]');
+                $(this).attr('is','0');
+                var id = $(this).attr('id');
+                var ids = $('#hideIds').val();
+                $('#hideIds').val(ids.replace(id+',',''));
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -15,10 +15,10 @@ import org.springframework.web.client.RestTemplate;
 public class ConsumerController {
 
     @Autowired
-    private ComputeService computeService;
+    ComputeService computeService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
-        return computeService.addService();
+        return computeService.add();
     }
 }

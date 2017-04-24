@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @RequestMapping(value = "/hello", produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/", produces = "application/json;charset=UTF-8")
     public String index() {
-        return "Hello Docker World."
-                + "<br />Welcome to <a href='https://my.oschina.net/u/1000241/blog'>waylau.com</a></li>";
+        return "Hello Docker World.";
     }
 }

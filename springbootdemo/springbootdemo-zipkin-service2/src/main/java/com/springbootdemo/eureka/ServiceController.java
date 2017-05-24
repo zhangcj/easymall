@@ -20,11 +20,4 @@ public class ServiceController {
     public String hi() {
         return "service02";
     }
-
-    @RequestMapping(value = "/api", method = RequestMethod.GET)
-    public String api() {
-        return restTemplate.getForEntity(
-                "http://localhost:7001/hi",
-                String.class).getBody();
-    }
 }

@@ -13,8 +13,6 @@ public class ZipkinClientApplication {
 		return new RestTemplate();
 	}
 
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(ZipkinClientApplication.class, args);
 	}
